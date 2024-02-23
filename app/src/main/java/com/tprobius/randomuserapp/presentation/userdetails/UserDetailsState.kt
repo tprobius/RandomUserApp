@@ -1,7 +1,5 @@
 package com.tprobius.randomuserapp.presentation.userdetails
 
-import com.tprobius.randomuserapp.domain.entities.RandomUser
-
 sealed interface UserDetailsState {
 
     data object Initial : UserDetailsState
