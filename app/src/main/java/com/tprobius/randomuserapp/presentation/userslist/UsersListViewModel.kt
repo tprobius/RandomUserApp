@@ -17,13 +17,12 @@ class UsersListViewModel(
         _state.value = UserListState.Initial
     }
 
-    fun getRecipeList(result: Int) {
+    fun getRecipeList() {
         viewModelScope.launch {
             _state.value = UserListState.Loading
 
             try {
-                val res = getRandomUsersListUseCase(result)
-                res.let {
+                getRandomUsersListUseCase().let {
                     if (it.isEmpty()) {
                         _state.postValue(UserListState.Error)
                     } else {

@@ -37,7 +37,7 @@ class UsersListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getRecipeList(150)
+        viewModel.getRecipeList()
         viewModel.state.observe(viewLifecycleOwner, ::handleState)
 
         setUsersListAdapter()
