@@ -99,18 +99,10 @@ class UsersListFragment : Fragment() {
 
     private fun setUsersListAdapter() {
         usersListAdapter = UsersListAdapter(
-            onClickListener = {
-                setOnClickListener(it)
-            },
-            onPhoneNumberClick = {
-                setOnPhoneNumberClick(it)
-            },
-            onEmailClick = {
-                setOnEmailClick(it)
-            },
-            onLocationClick = {
-                setOnLocationClick(it)
-            }
+            onClickListener = { viewModel.getUserDetails(it) },
+            onPhoneNumberClick = { setOnPhoneNumberClick(it) },
+            onEmailClick = { setOnEmailClick(it) },
+            onLocationClick = { setOnLocationClick(it) }
         )
         binding.usersListRecyclerView.adapter = usersListAdapter
     }
@@ -134,7 +126,6 @@ class UsersListFragment : Fragment() {
     private fun setOnTryAgainClick() {
 
     }
-
 
     override fun onDestroy() {
         _binding = null

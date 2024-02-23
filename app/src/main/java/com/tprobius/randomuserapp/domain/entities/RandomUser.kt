@@ -1,5 +1,9 @@
 package com.tprobius.randomuserapp.domain.entities
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class RandomUser(
     val gender: String?,
     val nameDmn: NameDmn?,
@@ -13,4 +17,4 @@ data class RandomUser(
     val idDmn: IdDmn?,
     val pictureDmn: PictureDmn?,
     val nat: String?
-)
+): Parcelable

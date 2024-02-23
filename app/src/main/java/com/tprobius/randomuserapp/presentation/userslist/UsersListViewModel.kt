@@ -4,12 +4,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.tprobius.randomuserapp.domain.entities.RandomUser
 import com.tprobius.randomuserapp.domain.usecases.GetRandomUsersListUseCase
 import kotlinx.coroutines.launch
 
 class UsersListViewModel(
-    private val getRandomUsersListUseCase: GetRandomUsersListUseCase
+    private val getRandomUsersListUseCase: GetRandomUsersListUseCase,
+    private val router: UsersListRouter
 ) : ViewModel() {
+
     private var _state: MutableLiveData<UserListState> = MutableLiveData()
     val state: LiveData<UserListState> = _state
 
@@ -33,5 +36,9 @@ class UsersListViewModel(
                 _state.postValue(UserListState.Error)
             }
         }
+    }
+
+    fun getUserDetails(user: RandomUser) {
+        router.openUserDetails(user)
     }
 }
