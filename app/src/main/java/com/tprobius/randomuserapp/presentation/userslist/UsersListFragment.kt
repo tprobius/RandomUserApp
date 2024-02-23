@@ -115,7 +115,7 @@ class UsersListFragment : Fragment() {
 
     }
 
-    fun setOnEmailClick(user: RandomUser) {
+    private fun setOnEmailClick(user: RandomUser) {
 
     }
 
