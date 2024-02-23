@@ -11,11 +11,11 @@ class RandomUserApiRepositoryImpl(
     private val dispatcher: CoroutineDispatcher
 ) : RandomUserApiRepository {
 
-    override suspend fun getRandomUsersList(result: Int): List<RandomUser> {
+    override suspend fun getRandomUsersList(): List<RandomUser> {
         val usersList: MutableList<RandomUser> = mutableListOf()
 
         withContext(dispatcher) {
-            randomUserApi.getRandomUserList(result).resultDts?.forEach {
+            randomUserApi.getRandomUserList().resultDts?.forEach {
                 it?.let { it1 -> usersList.add(it1.toRandomUser()) }
             }
 

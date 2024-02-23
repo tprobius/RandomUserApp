@@ -7,7 +7,7 @@ class GetRandomUsersListUseCase(
     private val apiRepository: RandomUserApiRepository
 ) {
 
-    suspend operator fun invoke(result: Int): List<RandomUser> {
-        return apiRepository.getRandomUsersList(result)
+    suspend operator fun invoke(): List<RandomUser> {
+        return apiRepository.getRandomUsersList()
     }
 }
