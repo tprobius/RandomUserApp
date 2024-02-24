@@ -20,7 +20,7 @@ class UserViewHolder(
             "${user.country}, ${user.city}, ${user.street}, ${user.number}"
 
         Glide.with(binding.imageView)
-            .load(user.thumbnail)
+            .load(user.medium)
             .placeholder(R.drawable.ic_image_placeholder)
             .transform(RoundedCorners(150))
             .into(binding.imageView)

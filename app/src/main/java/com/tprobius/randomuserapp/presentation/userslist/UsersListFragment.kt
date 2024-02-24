@@ -57,23 +57,27 @@ class UsersListFragment : Fragment() {
     }
 
     private fun showInitialState() {
+        serViewsVisibility()
+    }
+
+    private fun serViewsVisibility(
+        progressBarIsVisible: Boolean = false,
+        errorImageViewIsVisible: Boolean = false,
+        errorTextViewIsVisible: Boolean = false,
+        tryAgainButtonIsVisible: Boolean = false,
+        usersListRecyclerViewIsVisible: Boolean = false
+    ) {
         with(binding) {
-            progressBar.isVisible = false
-            errorImageView.isVisible = false
-            errorTextView.isVisible = false
-            tryAgainButton.isVisible = false
-            usersListRecyclerView.isVisible = false
+            progressBar.isVisible = progressBarIsVisible
+            errorImageView.isVisible = errorImageViewIsVisible
+            errorTextView.isVisible = errorTextViewIsVisible
+            tryAgainButton.isVisible = tryAgainButtonIsVisible
+            usersListRecyclerView.isVisible = usersListRecyclerViewIsVisible
         }
     }
 
     private fun showLoadingState() {
-        with(binding) {
-            progressBar.isVisible = true
-            errorImageView.isVisible = false
-            errorTextView.isVisible = false
-            tryAgainButton.isVisible = false
-            usersListRecyclerView.isVisible = false
-        }
+        serViewsVisibility(progressBarIsVisible = true)
     }
 
     private fun showSuccessState(usersList: List<RandomUser>) {
@@ -84,13 +88,7 @@ class UsersListFragment : Fragment() {
 
         MainActivity.isFirst.add(false)
 
-        with(binding) {
-            progressBar.isVisible = false
-            errorImageView.isVisible = false
-            errorTextView.isVisible = false
-            tryAgainButton.isVisible = false
-            usersListRecyclerView.isVisible = true
-        }
+        serViewsVisibility(usersListRecyclerViewIsVisible = true)
 
         viewLifecycleOwner.lifecycleScope.launch {
             usersListAdapter.submitList(usersList)
@@ -98,13 +96,11 @@ class UsersListFragment : Fragment() {
     }
 
     private fun showErrorState() {
-        with(binding) {
-            progressBar.isVisible = false
-            errorImageView.isVisible = true
-            errorTextView.isVisible = true
-            tryAgainButton.isVisible = true
-            usersListRecyclerView.isVisible = false
-        }
+        serViewsVisibility(
+            errorImageViewIsVisible = true,
+            errorTextViewIsVisible = true,
+            tryAgainButtonIsVisible = true
+        )
     }
 
     private fun setUsersListAdapter() {
