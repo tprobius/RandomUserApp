@@ -44,6 +44,7 @@ class UsersListFragment : Fragment() {
 
         setUsersListAdapter()
         setOnTryAgainClick()
+        setOnRefreshList()
     }
 
     private fun handleState(state: UserListState) {
@@ -113,6 +114,14 @@ class UsersListFragment : Fragment() {
 
     private fun setOnTryAgainClick() {
 
+    }
+
+    private fun setOnRefreshList() {
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            MainActivity.isFirst.add(true)
+            viewModel.getRecipeList()
+            binding.swipeRefreshLayout.isRefreshing = false
+        }
     }
 
     override fun onDestroy() {
