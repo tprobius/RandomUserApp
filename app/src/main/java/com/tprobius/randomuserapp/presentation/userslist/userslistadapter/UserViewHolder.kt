@@ -9,10 +9,7 @@ import com.tprobius.randomuserapp.domain.entities.RandomUser
 
 class UserViewHolder(
     private var binding: ItemUserBinding,
-    private val onClickListener: (RandomUser) -> Unit,
-    private val onPhoneNumberClick: (RandomUser) -> Unit,
-    private val onEmailClick: (RandomUser) -> Unit,
-    private val onLocationClick: (RandomUser) -> Unit
+    private val onClickListener: (RandomUser) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(user: RandomUser) {
@@ -30,18 +27,6 @@ class UserViewHolder(
 
         itemView.setOnClickListener {
             onClickListener(user)
-        }
-
-        binding.phoneNumberTextView.setOnClickListener {
-            onPhoneNumberClick(user)
-        }
-
-        binding.emailAddressTextView.setOnClickListener {
-            onEmailClick(user)
-        }
-
-        binding.locationTextView.setOnClickListener {
-            onLocationClick(user)
         }
     }
 }
