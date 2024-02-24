@@ -9,9 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.tprobius.randomuserapp.R
 import com.tprobius.randomuserapp.databinding.FragmentUserDetailsBinding
 import com.tprobius.randomuserapp.domain.entities.RandomUser
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -52,7 +50,6 @@ class UserDetailsFragment : Fragment() {
         setOnPhoneNumberClick()
         setOnEmailClick()
         setOnLocationClick()
-        setOnTryAgainClick()
         setOnBackClick()
     }
 
@@ -66,118 +63,74 @@ class UserDetailsFragment : Fragment() {
     }
 
     private fun showInitialState() {
-        with(binding) {
-            progressBar.isVisible = false
-            errorImageView.isVisible = false
-            errorTextView.isVisible = false
-            tryAgainButton.isVisible = false
+        setViewsVisibility()
+        setUserDataVisibility(false)
+    }
 
-            with(userDetailsLayout) {
-                photoImageView.isVisible = false
-                userNameTextView.isVisible = false
-                dividerView.isVisible = false
-                phoneTextView.isVisible = false
-                phoneValueTextView.isVisible = false
-                emailTextView.isVisible = false
-                emailValueTextView.isVisible = false
-                addressTextView.isVisible = false
-                addressValueTextView.isVisible = false
-                timezoneTextView.isVisible = false
-                timezoneValueTextView.isVisible = false
-                dobTextView.isVisible = false
-                dobValueTextView.isVisible = false
-            }
+    private fun setViewsVisibility(
+        progressBarVisibility: Boolean = false,
+        errorImageViewVisibility: Boolean = false,
+        errorTextViewVisibility: Boolean = false,
+        tryAgainButtonVisibility: Boolean = false
+    ) {
+        with(binding) {
+            progressBar.isVisible = progressBarVisibility
+            errorImageView.isVisible = errorImageViewVisibility
+            errorTextView.isVisible = errorTextViewVisibility
+            tryAgainButton.isVisible = tryAgainButtonVisibility
+        }
+    }
+
+    private fun setUserDataVisibility(isVisible: Boolean) {
+        with(binding.userDetailsLayout) {
+            photoImageView.isVisible = isVisible
+            userNameTextView.isVisible = isVisible
+            dividerView.isVisible = isVisible
+            phoneTextView.isVisible = isVisible
+            phoneValueTextView.isVisible = isVisible
+            emailTextView.isVisible = isVisible
+            emailValueTextView.isVisible = isVisible
+            addressTextView.isVisible = isVisible
+            addressValueTextView.isVisible = isVisible
+            timezoneTextView.isVisible = isVisible
+            timezoneValueTextView.isVisible = isVisible
+            dobTextView.isVisible = isVisible
+            dobValueTextView.isVisible = isVisible
         }
     }
 
     private fun showLoadingState() {
-        with(binding) {
-            progressBar.isVisible = true
-            errorImageView.isVisible = false
-            errorTextView.isVisible = false
-            tryAgainButton.isVisible = false
-
-            with(userDetailsLayout) {
-                photoImageView.isVisible = false
-                userNameTextView.isVisible = false
-                dividerView.isVisible = false
-                phoneTextView.isVisible = false
-                phoneValueTextView.isVisible = false
-                emailTextView.isVisible = false
-                emailValueTextView.isVisible = false
-                addressTextView.isVisible = false
-                addressValueTextView.isVisible = false
-                timezoneTextView.isVisible = false
-                timezoneValueTextView.isVisible = false
-                dobTextView.isVisible = false
-                dobValueTextView.isVisible = false
-            }
-        }
+        setViewsVisibility(progressBarVisibility = true)
+        setUserDataVisibility(false)
     }
 
     private fun showSuccessState() {
-        with(binding) {
-            progressBar.isVisible = false
-            errorImageView.isVisible = false
-            errorTextView.isVisible = false
-            tryAgainButton.isVisible = false
+        setViewsVisibility()
+        setUserDataVisibility(true)
 
-            with(userDetailsLayout) {
-                photoImageView.isVisible = true
-                userNameTextView.isVisible = true
-                dividerView.isVisible = true
-                phoneTextView.isVisible = true
-                phoneValueTextView.isVisible = true
-                emailTextView.isVisible = true
-                emailValueTextView.isVisible = true
-                addressTextView.isVisible = true
-                addressValueTextView.isVisible = true
-                timezoneTextView.isVisible = true
-                timezoneValueTextView.isVisible = true
-                dobTextView.isVisible = true
-                dobValueTextView.isVisible = true
-            }
-
-            with(userDetailsLayout) {
-                Glide.with(photoImageView)
-                    .load(user.large)
-                    .placeholder(R.drawable.ic_image_placeholder)
-                    .transform(RoundedCorners(CORNER_RADIUS))
-                    .into(photoImageView)
-                userNameTextView.text = "${user.first} ${user.last}"
-                phoneValueTextView.text = user.phone
-                emailValueTextView.text = user.email
-                addressValueTextView.text =
-                    "${user.country}, ${user.city}, ${user.street}, ${user.number}"
-                timezoneValueTextView.text = user.timezone
-                dobValueTextView.text = user.date
-            }
+        with(binding.userDetailsLayout) {
+            com.bumptech.glide.Glide.with(photoImageView)
+                .load(user.large)
+                .placeholder(com.tprobius.randomuserapp.R.drawable.ic_image_placeholder)
+                .transform(RoundedCorners(CORNER_RADIUS))
+                .into(photoImageView)
+            userNameTextView.text = "${user.first} ${user.last}"
+            phoneValueTextView.text = user.phone
+            emailValueTextView.text = user.email
+            addressValueTextView.text =
+                "${user.country}, ${user.city}, ${user.street}, ${user.number}"
+            timezoneValueTextView.text = user.timezone
+            dobValueTextView.text = user.date
         }
     }
 
     private fun showErrorState() {
-        with(binding) {
-            progressBar.isVisible = false
-            errorImageView.isVisible = true
-            errorTextView.isVisible = true
-            tryAgainButton.isVisible = true
-
-            with(userDetailsLayout) {
-                photoImageView.isVisible = false
-                userNameTextView.isVisible = false
-                dividerView.isVisible = false
-                phoneTextView.isVisible = false
-                phoneValueTextView.isVisible = false
-                emailTextView.isVisible = false
-                emailValueTextView.isVisible = false
-                addressTextView.isVisible = false
-                addressValueTextView.isVisible = false
-                timezoneTextView.isVisible = false
-                timezoneValueTextView.isVisible = false
-                dobTextView.isVisible = false
-                dobValueTextView.isVisible = false
-            }
-        }
+        setViewsVisibility(
+            errorImageViewVisibility = true,
+            errorTextViewVisibility = true,
+            tryAgainButtonVisibility = true
+        )
+        setUserDataVisibility(false)
     }
 
     private fun setOnPhoneNumberClick() {
@@ -206,10 +159,6 @@ class UserDetailsFragment : Fragment() {
             }
             context?.startActivity(mapIntent)
         }
-    }
-
-    private fun setOnTryAgainClick() {
-
     }
 
     private fun setOnBackClick() {
