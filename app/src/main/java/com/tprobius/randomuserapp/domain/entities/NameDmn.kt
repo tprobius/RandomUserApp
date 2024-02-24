@@ -8,4 +8,4 @@ data class NameDmn(
     val title: String?,
     val first: String?,
     val last: String?
-): Parcelable
+) : Parcelable

@@ -1,11 +1,16 @@
 package com.tprobius.randomuserapp.di
 
+import android.app.Application
+import androidx.room.Room
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.Router
 import com.tprobius.randomuserapp.data.api.RandomUserApi
 import com.tprobius.randomuserapp.data.api.RandomUserApi.Companion.BASE_URL
+import com.tprobius.randomuserapp.data.database.RandomUserDatabase
 import com.tprobius.randomuserapp.data.repository.RandomUserApiRepositoryImpl
+import com.tprobius.randomuserapp.data.repository.RandomUserDatabaseRepositoryImpl
 import com.tprobius.randomuserapp.domain.repository.RandomUserApiRepository
+import com.tprobius.randomuserapp.domain.repository.RandomUserDatabaseRepository
 import com.tprobius.randomuserapp.domain.usecases.GetRandomUsersListUseCase
 import com.tprobius.randomuserapp.navigation.UserDetailsRouterImpl
 import com.tprobius.randomuserapp.navigation.UsersListRouterImpl
@@ -34,11 +39,22 @@ val apiModule = module {
 }
 
 val databaseModule = module {
-
+    single { provideRecipeBookDatabase(app = get()).randomUserDao }
+    single<RandomUserDatabaseRepository> {
+        RandomUserDatabaseRepositoryImpl(
+            randomUserDao = get(),
+            dispatcher = Dispatchers.IO
+        )
+    }
 }
 
 val useCasesModule = module {
-    single { GetRandomUsersListUseCase(apiRepository = get()) }
+    single {
+        GetRandomUsersListUseCase(
+            apiRepository = get(),
+            databaseRepository = get()
+        )
+    }
 }
 
 val viewModelModule = module {
@@ -71,4 +87,14 @@ private fun provideRandomUserApi(retrofitBuilder: Retrofit.Builder): RandomUserA
     return retrofitBuilder
         .build()
         .create(RandomUserApi::class.java)
+}
+
+fun provideRecipeBookDatabase(app: Application): RandomUserDatabase {
+    return Room.databaseBuilder(
+        app,
+        RandomUserDatabase::class.java,
+        RandomUserDatabase.DATABASE_NAME
+    )
+        .fallbackToDestructiveMigration()
+        .build()
 }

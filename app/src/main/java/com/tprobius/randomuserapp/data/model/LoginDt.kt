@@ -1,7 +1,6 @@
 package com.tprobius.randomuserapp.data.model
 
 import com.google.gson.annotations.SerializedName
-import com.tprobius.randomuserapp.domain.entities.LoginDmn
 
 data class LoginDt(
     @SerializedName("uuid")
@@ -18,15 +17,4 @@ data class LoginDt(
     val sha1: String?,
     @SerializedName("sha256")
     val sha256: String?
-) {
-
-    fun toLoginDmn() = LoginDmn(
-        uuid = uuid,
-        username = username,
-        password = password,
-        salt = salt,
-        md5 = md5,
-        sha1 = sha1,
-        sha256 = sha256
-    )
-}
+)

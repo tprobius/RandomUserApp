@@ -51,6 +51,7 @@ class UserDetailsFragment : Fragment() {
         setOnEmailClick()
         setOnLocationClick()
         setOnTryAgainClick()
+        setOnBackClick()
     }
 
     private fun handleState(state: UserDetailsState) {
@@ -137,17 +138,17 @@ class UserDetailsFragment : Fragment() {
 
             with(userDetailsLayout) {
                 Glide.with(photoImageView)
-                    .load(user.pictureDmn?.large)
+                    .load(user.large)
                     .placeholder(R.drawable.ic_image_placeholder)
-                    .transform(RoundedCorners(500))
+                    .transform(RoundedCorners(CORNER_RADIUS))
                     .into(photoImageView)
-                userNameTextView.text = "${user.nameDmn?.first} ${user.nameDmn?.last}"
+                userNameTextView.text = "${user.first} ${user.last}"
                 phoneValueTextView.text = user.phone
                 emailValueTextView.text = user.email
                 addressValueTextView.text =
-                    "${user.locationDmn?.country}, ${user.locationDmn?.city}, ${user.locationDmn?.streetDmn?.name}, ${user.locationDmn?.streetDmn?.number}"
-                timezoneValueTextView.text = user.locationDmn?.timezoneDmn?.description
-                dobValueTextView.text = user.dobDmn?.date
+                    "${user.country}, ${user.city}, ${user.street}, ${user.number}"
+                timezoneValueTextView.text = user.timezone
+                dobValueTextView.text = user.date
             }
         }
     }
@@ -193,12 +194,19 @@ class UserDetailsFragment : Fragment() {
 
     }
 
+    private fun setOnBackClick() {
+        binding.topAppBar.setNavigationOnClickListener {
+            viewModel.getUsersList()
+        }
+    }
+
     override fun onDestroy() {
         _binding = null
         super.onDestroy()
     }
 
     companion object {
+        private const val CORNER_RADIUS = 500
         private const val USER = "user"
 
         private var Bundle.user

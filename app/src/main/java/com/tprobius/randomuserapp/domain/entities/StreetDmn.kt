@@ -7,4 +7,4 @@ import kotlinx.parcelize.Parcelize
 data class StreetDmn(
     val number: Int?,
     val name: String?
-): Parcelable
+) : Parcelable

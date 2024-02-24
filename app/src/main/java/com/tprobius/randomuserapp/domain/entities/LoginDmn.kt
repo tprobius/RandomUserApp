@@ -12,4 +12,4 @@ data class LoginDmn(
     val md5: String?,
     val sha1: String?,
     val sha256: String?
-): Parcelable
+) : Parcelable

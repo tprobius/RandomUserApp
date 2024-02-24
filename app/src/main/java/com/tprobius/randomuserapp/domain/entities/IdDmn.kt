@@ -7,4 +7,4 @@ import kotlinx.parcelize.Parcelize
 data class IdDmn(
     val name: String?,
     val value: String?
-): Parcelable
+) : Parcelable

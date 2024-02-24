@@ -1,7 +1,10 @@
 package com.tprobius.randomuserapp.domain.entities
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class CoordinatesDmn(
-    val latitude: Double?,
-    val longitude: Double?
-)
+    val latitude: String?,
+    val longitude: String?
+) : Parcelable

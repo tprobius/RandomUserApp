@@ -1,7 +1,7 @@
 package com.tprobius.randomuserapp
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
@@ -18,6 +18,13 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        isFirst.add(
+            getSharedPreferences(APP_PREFERENCES, MODE_PRIVATE).getBoolean(
+                IS_FIRST_ENTRY,
+                true
+            )
+        )
+
         router.newRootScreen(getUsersListScreen())
     }
 
@@ -31,4 +38,10 @@ class MainActivity : AppCompatActivity() {
         navigatorHolder.removeNavigator()
     }
 
+    companion object {
+        const val APP_PREFERENCES = "app_preferences"
+        const val IS_FIRST_ENTRY = "isFirstEntry"
+
+        val isFirst = mutableListOf(true)
+    }
 }

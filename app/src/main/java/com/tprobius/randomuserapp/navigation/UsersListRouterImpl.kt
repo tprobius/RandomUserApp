@@ -8,6 +8,7 @@ import com.tprobius.randomuserapp.presentation.userslist.UsersListRouter
 class UsersListRouterImpl(
     private val router: Router
 ) : UsersListRouter {
+
     override fun openUserDetails(user: RandomUser) {
         router.navigateTo(getUserDetailsScreen(user))
     }

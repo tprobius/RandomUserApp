@@ -9,7 +9,8 @@ import com.tprobius.randomuserapp.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
-class RandomUserApp: Application() {
+class RandomUserApp : Application() {
+
     override fun onCreate() {
         super.onCreate()
 

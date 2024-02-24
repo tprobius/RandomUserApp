@@ -7,4 +7,4 @@ import kotlinx.parcelize.Parcelize
 data class TimezoneDmn(
     val offset: String?,
     val description: String?
-): Parcelable
+) : Parcelable

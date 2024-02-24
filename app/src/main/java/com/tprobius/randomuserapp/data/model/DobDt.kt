@@ -8,7 +8,4 @@ data class DobDt(
     val date: String?,
     @SerializedName("age")
     val age: Int?
-) {
-
-    fun toDobDmn() = DobDmn(date = date, age = age)
-}
+)

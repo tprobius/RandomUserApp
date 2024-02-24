@@ -10,5 +10,6 @@ data class LocationDmn(
     val state: String?,
     val country: String?,
     val postcode: String?,
+    val coordinates: CoordinatesDmn?,
     val timezoneDmn: TimezoneDmn?
-): Parcelable
+) : Parcelable

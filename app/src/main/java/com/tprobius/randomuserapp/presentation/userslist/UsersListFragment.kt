@@ -1,5 +1,6 @@
 package com.tprobius.randomuserapp.presentation.userslist
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +8,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import com.tprobius.randomuserapp.MainActivity
 import com.tprobius.randomuserapp.databinding.FragmentUsersListBinding
 import com.tprobius.randomuserapp.domain.entities.RandomUser
 import com.tprobius.randomuserapp.presentation.userslist.userslistadapter.UsersListAdapter
@@ -74,6 +76,13 @@ class UsersListFragment : Fragment() {
     }
 
     private fun showSuccessState(usersList: List<RandomUser>) {
+        requireActivity()
+            .getSharedPreferences(MainActivity.APP_PREFERENCES, Context.MODE_PRIVATE).edit()
+            .putBoolean(MainActivity.IS_FIRST_ENTRY, false)
+            .apply()
+
+        MainActivity.isFirst.add(false)
+
         with(binding) {
             progressBar.isVisible = false
             errorImageView.isVisible = false

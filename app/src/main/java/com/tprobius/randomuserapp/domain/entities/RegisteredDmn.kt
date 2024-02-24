@@ -7,4 +7,4 @@ import kotlinx.parcelize.Parcelize
 data class RegisteredDmn(
     val date: String?,
     val age: Int?
-): Parcelable
+) : Parcelable
