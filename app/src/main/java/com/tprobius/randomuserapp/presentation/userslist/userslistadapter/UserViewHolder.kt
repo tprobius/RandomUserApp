@@ -16,14 +16,14 @@ class UserViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(user: RandomUser) {
-        binding.userNameTextView.text = "${user.nameDmn?.first} ${user.nameDmn?.last}"
+        binding.userNameTextView.text = "${user.first} ${user.last}"
         binding.phoneNumberTextView.text = user.phone
         binding.emailAddressTextView.text = user.email
         binding.locationTextView.text =
-            "${user.locationDmn?.country}, ${user.locationDmn?.city}, ${user.locationDmn?.streetDmn?.name}, ${user.locationDmn?.streetDmn?.number}"
+            "${user.country}, ${user.city}, ${user.street}, ${user.number}"
 
         Glide.with(binding.imageView)
-            .load(user.pictureDmn?.thumbnail)
+            .load(user.thumbnail)
             .placeholder(R.drawable.ic_image_placeholder)
             .transform(RoundedCorners(150))
             .into(binding.imageView)

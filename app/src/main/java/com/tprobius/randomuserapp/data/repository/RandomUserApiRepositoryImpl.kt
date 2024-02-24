@@ -16,9 +16,8 @@ class RandomUserApiRepositoryImpl(
 
         withContext(dispatcher) {
             randomUserApi.getRandomUserList().resultDts?.forEach {
-                it?.let { it1 -> usersList.add(it1.toRandomUser()) }
+                it?.let { result -> usersList.add(result.toRandomUser()) }
             }
-
         }
 
         return usersList

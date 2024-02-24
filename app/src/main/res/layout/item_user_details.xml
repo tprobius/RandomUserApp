@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/photo_imageView"
+        android:layout_width="360dp"
+        android:layout_height="360dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:contentDescription="@string/user_photo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/userName_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photo_imageView"
+        tools:text="Sandra Ray" />
+
+    <View
+        android:id="@+id/dividerView"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userName_textView" />
+
+    <TextView
+        android:id="@+id/phone_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/phone_number"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneValue_textView"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/phoneValue_textView" />
+
+    <TextView
+        android:id="@+id/phoneValue_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/dividerView"
+        tools:text="(927) 791-8752" />
+
+    <TextView
+        android:id="@+id/email_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/e_mail"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/emailValue_textView"
+        app:layout_constraintEnd_toEndOf="@+id/phone_textView"
+        app:layout_constraintStart_toStartOf="@+id/phone_textView"
+        app:layout_constraintTop_toTopOf="@+id/emailValue_textView" />
+
+    <TextView
+        android:id="@+id/emailValue_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/phoneValue_textView"
+        app:layout_constraintStart_toStartOf="@+id/phoneValue_textView"
+        app:layout_constraintTop_toBottomOf="@+id/phoneValue_textView"
+        tools:text="sandra.ray@example.com" />
+
+    <TextView
+        android:id="@+id/address_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/addressValue_textView"
+        app:layout_constraintEnd_toEndOf="@+id/email_textView"
+        app:layout_constraintStart_toStartOf="@+id/email_textView"
+        app:layout_constraintTop_toTopOf="@+id/addressValue_textView" />
+
+    <TextView
+        android:id="@+id/addressValue_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/emailValue_textView"
+        app:layout_constraintStart_toStartOf="@+id/emailValue_textView"
+        app:layout_constraintTop_toBottomOf="@+id/emailValue_textView"
+        tools:text="2155 Taylor St" />
+
+    <TextView
+        android:id="@+id/dob_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/timezone"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/timezoneValue_textView"
+        app:layout_constraintEnd_toEndOf="@+id/address_textView"
+        app:layout_constraintStart_toStartOf="@+id/address_textView"
+        app:layout_constraintTop_toTopOf="@+id/timezoneValue_textView" />
+
+    <TextView
+        android:id="@+id/timezoneValue_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/addressValue_textView"
+        app:layout_constraintStart_toStartOf="@+id/addressValue_textView"
+        app:layout_constraintTop_toBottomOf="@+id/addressValue_textView"
+        tools:text="Adelaide, Darwin" />
+
+    <TextView
+        android:id="@+id/timezone_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/date_if_birth"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/dobValue_textView"
+        app:layout_constraintEnd_toEndOf="@+id/dob_textView"
+        app:layout_constraintStart_toStartOf="@+id/dob_textView"
+        app:layout_constraintTop_toTopOf="@+id/dobValue_textView" />
+
+    <TextView
+        android:id="@+id/dobValue_textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/timezoneValue_textView"
+        app:layout_constraintStart_toStartOf="@+id/timezoneValue_textView"
+        app:layout_constraintTop_toBottomOf="@+id/timezoneValue_textView"
+        tools:text="03.06.1987" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="144dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
