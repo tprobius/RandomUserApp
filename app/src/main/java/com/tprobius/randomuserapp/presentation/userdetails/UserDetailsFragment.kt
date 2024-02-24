@@ -1,5 +1,7 @@
 package com.tprobius.randomuserapp.presentation.userdetails
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -179,15 +181,31 @@ class UserDetailsFragment : Fragment() {
     }
 
     private fun setOnPhoneNumberClick() {
-
+        binding.userDetailsLayout.phoneValueTextView.setOnClickListener {
+            val telIntent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("tel:${user.phone}")
+            }
+            context?.startActivity(telIntent)
+        }
     }
 
     private fun setOnEmailClick() {
-
+        binding.userDetailsLayout.emailValueTextView.setOnClickListener {
+            val emailIntent = Intent(Intent.ACTION_SENDTO).apply {
+                data = Uri.parse("mailto:")
+                putExtra(Intent.EXTRA_EMAIL, user.email)
+            }
+            context?.startActivity(emailIntent)
+        }
     }
 
     private fun setOnLocationClick() {
-
+        binding.userDetailsLayout.addressValueTextView.setOnClickListener {
+            val mapIntent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse("geo:${user.latitude}," + "${user.longitude}")
+            }
+            context?.startActivity(mapIntent)
+        }
     }
 
     private fun setOnTryAgainClick() {
