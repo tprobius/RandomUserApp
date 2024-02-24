@@ -39,7 +39,7 @@ class UsersListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.getRecipeList()
+        viewModel.getUsersList()
         viewModel.state.observe(viewLifecycleOwner, ::handleState)
 
         setUsersListAdapter()
@@ -113,13 +113,15 @@ class UsersListFragment : Fragment() {
     }
 
     private fun setOnTryAgainClick() {
-
+        binding.tryAgainButton.setOnClickListener {
+            viewModel.getUsersList()
+        }
     }
 
     private fun setOnRefreshList() {
         binding.swipeRefreshLayout.setOnRefreshListener {
             MainActivity.isFirst.add(true)
-            viewModel.getRecipeList()
+            viewModel.getUsersList()
             binding.swipeRefreshLayout.isRefreshing = false
         }
     }
