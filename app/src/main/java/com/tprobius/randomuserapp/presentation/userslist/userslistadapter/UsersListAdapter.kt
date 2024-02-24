@@ -8,18 +8,12 @@ import com.tprobius.randomuserapp.domain.entities.RandomUser
 
 class UsersListAdapter(
     private val onClickListener: (RandomUser) -> Unit,
-    private val onPhoneNumberClick: (RandomUser) -> Unit,
-    private val onEmailClick: (RandomUser) -> Unit,
-    private val onLocationClick: (RandomUser) -> Unit
 ) : ListAdapter<RandomUser, UserViewHolder>(UsersDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder =
         UserViewHolder(
             ItemUserBinding.inflate(LayoutInflater.from(parent.context)),
-            onClickListener,
-            onPhoneNumberClick,
-            onEmailClick,
-            onLocationClick
+            onClickListener
         )
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) =
