@@ -20,12 +20,12 @@ class UsersListViewModel(
         _state.value = UserListState.Initial
     }
 
-    fun getUsersList() {
+    fun getUsersList(isFirstEntry: Boolean) {
         viewModelScope.launch {
             _state.value = UserListState.Loading
 
             try {
-                getRandomUsersListUseCase().let {
+                getRandomUsersListUseCase(isFirstEntry).let {
                     if (it.isEmpty()) {
                         _state.postValue(UserListState.Error)
                     } else {
