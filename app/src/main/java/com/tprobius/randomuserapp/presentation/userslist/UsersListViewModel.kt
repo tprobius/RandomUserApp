@@ -20,7 +20,7 @@ class UsersListViewModel(
         _state.value = UserListState.Initial
     }
 
-    fun getRecipeList() {
+    fun getUsersList() {
         viewModelScope.launch {
             _state.value = UserListState.Loading
 
