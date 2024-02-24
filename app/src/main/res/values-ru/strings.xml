@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">RandomUserApp</string>
+    <string name="app_bar_title">Список пользователей</string>
+    <string name="user_photo">Фото пользователя</string>
+    <string name="error_message">Что-то пошло не так.\nПожалуйста, попробуде ещё раз позже.</string>
+    <string name="try_again">Повторить</string>
+    <string name="error_icon">Иконка ошибки</string>
+    <string name="phone_number">Телефон:</string>
+    <string name="e_mail">E-mail:</string>
+    <string name="location">Адрес:</string>
+    <string name="timezone">Часовой пояс:</string>
+    <string name="date_if_birth">Дата рождения:</string>
+    <string name="user_name">%1$s %2$s</string>
+    <string name="user_location">%1$s, %2$s, %3$s, %4$d</string>
+    <string name="date_of_birth">%1$d %2$s %3$d</string>
+</resources>

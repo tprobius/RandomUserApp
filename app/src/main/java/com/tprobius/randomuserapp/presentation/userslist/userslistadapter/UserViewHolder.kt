@@ -1,5 +1,6 @@
 package com.tprobius.randomuserapp.presentation.userslist.userslistadapter
 
+import android.annotation.SuppressLint
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
@@ -12,6 +13,7 @@ class UserViewHolder(
     private val onClickListener: (RandomUser) -> Unit
 ) : RecyclerView.ViewHolder(binding.root) {
 
+    @SuppressLint("SetTextI18n")
     fun bind(user: RandomUser) {
         binding.userNameTextView.text = "${user.first} ${user.last}"
         binding.phoneNumberTextView.text = user.phone
