@@ -9,10 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.tprobius.randomuserapp.R
 import com.tprobius.randomuserapp.databinding.FragmentUserDetailsBinding
 import com.tprobius.randomuserapp.domain.entities.RandomUser
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.time.LocalDate
+
 
 class UserDetailsFragment : Fragment() {
 
@@ -109,18 +113,31 @@ class UserDetailsFragment : Fragment() {
         setUserDataVisibility(true)
 
         with(binding.userDetailsLayout) {
-            com.bumptech.glide.Glide.with(photoImageView)
+            Glide.with(photoImageView)
                 .load(user.large)
-                .placeholder(com.tprobius.randomuserapp.R.drawable.ic_image_placeholder)
+                .placeholder(R.drawable.ic_image_placeholder)
                 .transform(RoundedCorners(CORNER_RADIUS))
                 .into(photoImageView)
-            userNameTextView.text = "${user.first} ${user.last}"
+            userNameTextView.text = getString(R.string.user_name, user.first, user.last)
             phoneValueTextView.text = user.phone
             emailValueTextView.text = user.email
             addressValueTextView.text =
-                "${user.country}, ${user.city}, ${user.street}, ${user.number}"
+                getString(
+                    R.string.user_location,
+                    user.country,
+                    user.city,
+                    user.street,
+                    user.number
+                )
             timezoneValueTextView.text = user.timezone
-            dobValueTextView.text = user.date
+
+            val date = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                LocalDate.parse(user.date?.take(10))
+            } else {
+                TODO("VERSION.SDK_INT < O")
+            }
+            dobValueTextView.text =
+                getString(R.string.date_of_birth, date.dayOfMonth, date.month, date.year)
         }
     }
 

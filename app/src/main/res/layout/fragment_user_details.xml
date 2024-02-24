@@ -21,7 +21,7 @@
             android:layout_height="?attr/actionBarSize"
             android:gravity="center"
             app:navigationIcon="@drawable/ic_arrow_back"
-            app:title="@string/app_name"
+            app:title="@string/app_bar_title"
             app:titleCentered="true" />
 
     </com.google.android.material.appbar.AppBarLayout>
