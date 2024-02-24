@@ -15,8 +15,12 @@ class RandomUserApiRepositoryImpl(
         val usersList: MutableList<RandomUser> = mutableListOf()
 
         withContext(dispatcher) {
-            randomUserApi.getRandomUserList().resultDts?.forEach {
-                it?.let { result -> usersList.add(result.toRandomUser()) }
+            val apiResponse = randomUserApi.getRandomUserList()
+
+            if (apiResponse.isSuccessful) {
+                apiResponse.body()?.resultDts?.forEach {
+                    it?.let { result -> usersList.add(result.toRandomUser()) }
+                }
             }
         }
 
