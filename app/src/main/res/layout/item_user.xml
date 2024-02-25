@@ -57,6 +57,7 @@
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
         android:contentDescription="@string/content_description"
         app:layout_constraintBottom_toBottomOf="@+id/emailAddress_textView"
         app:layout_constraintStart_toEndOf="@+id/phoneNumber_textView"

@@ -2,7 +2,7 @@
     <string name="app_name">RandomUserApp</string>
     <string name="app_bar_title">Список пользователей</string>
     <string name="user_photo">Фото пользователя</string>
-    <string name="error_message">Что-то пошло не так.\nПожалуйста, попробуде ещё раз позже.</string>
+    <string name="error_message">Что-то пошло не так.\nПожалуйста, попробуйте ещё раз.</string>
     <string name="try_again">Повторить</string>
     <string name="error_icon">Иконка ошибки</string>
     <string name="phone_number">Телефон:</string>
