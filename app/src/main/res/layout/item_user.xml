@@ -29,30 +29,62 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Sandra Ray" />
 
+    <ImageView
+        android:id="@+id/phone_imageView"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneNumber_textView"
+        app:layout_constraintStart_toStartOf="@+id/userName_textView"
+        app:layout_constraintTop_toTopOf="@+id/phoneNumber_textView"
+        app:srcCompat="@drawable/ic_phone" />
+
     <TextView
         android:id="@+id/phoneNumber_textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:ellipsize="end"
         android:singleLine="true"
         app:layout_constraintEnd_toStartOf="@+id/guideline"
-        app:layout_constraintStart_toStartOf="@+id/userName_textView"
+        app:layout_constraintStart_toEndOf="@+id/phone_imageView"
         app:layout_constraintTop_toBottomOf="@+id/userName_textView"
         tools:text="(927) 791-8752" />
+
+    <ImageView
+        android:id="@+id/email_imageView"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintBottom_toBottomOf="@+id/emailAddress_textView"
+        app:layout_constraintStart_toEndOf="@+id/phoneNumber_textView"
+        app:layout_constraintTop_toTopOf="@+id/emailAddress_textView"
+        app:srcCompat="@drawable/ic_email" />
 
     <TextView
         android:id="@+id/emailAddress_textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="4dp"
         android:layout_marginEnd="8dp"
         android:ellipsize="end"
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/phoneNumber_textView"
+        app:layout_constraintStart_toEndOf="@+id/email_imageView"
         app:layout_constraintTop_toTopOf="@+id/phoneNumber_textView"
         tools:text="sandra.ray@example.com" />
+
+    <ImageView
+        android:id="@+id/location_imageView"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:contentDescription="@string/content_description"
+        app:layout_constraintBottom_toBottomOf="@+id/location_textView"
+        app:layout_constraintStart_toStartOf="@+id/phone_imageView"
+        app:layout_constraintTop_toTopOf="@+id/location_textView"
+        app:srcCompat="@drawable/ic_location" />
 
     <TextView
         android:id="@+id/location_textView"
