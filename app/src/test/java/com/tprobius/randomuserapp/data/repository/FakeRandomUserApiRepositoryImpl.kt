@@ -1,4 +1,4 @@
-package com.tprobius.randomuserapp.domain.usecases.data.repository
+package com.tprobius.randomuserapp.data.repository
 
 import com.tprobius.randomuserapp.domain.entities.RandomUser
 import com.tprobius.randomuserapp.domain.repository.RandomUserApiRepository

@@ -1,7 +1,7 @@
 package com.tprobius.randomuserapp.domain.usecases
 
-import com.tprobius.randomuserapp.domain.usecases.data.repository.FakeRandomUserApiRepositoryImpl
-import com.tprobius.randomuserapp.domain.usecases.data.repository.FakeRandomUserDatabaseRepositoryImpl
+import com.tprobius.randomuserapp.data.repository.FakeRandomUserApiRepositoryImpl
+import com.tprobius.randomuserapp.data.repository.FakeRandomUserDatabaseRepositoryImpl
 import com.tprobius.randomuserapp.domain.entities.RandomUser
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
