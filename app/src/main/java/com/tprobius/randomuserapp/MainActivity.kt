@@ -1,10 +1,12 @@
 package com.tprobius.randomuserapp
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.AppNavigator
+import com.tprobius.randomuserapp.presentation.userslist.UsersListFragment
 import com.tprobius.randomuserapp.presentation.userslist.getUsersListScreen
 import org.koin.android.ext.android.inject
 
@@ -25,6 +27,10 @@ class MainActivity : AppCompatActivity() {
             )
         )
 
+        getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE).edit()
+            .putInt(UsersListFragment.LAST_POSITION, 0)
+            .apply()
+
         router.newRootScreen(getUsersListScreen())
     }
 
@@ -36,6 +42,13 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
         navigatorHolder.removeNavigator()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE).edit()
+            .putInt(UsersListFragment.LAST_POSITION, 0)
+            .apply()
     }
 
     companion object {
