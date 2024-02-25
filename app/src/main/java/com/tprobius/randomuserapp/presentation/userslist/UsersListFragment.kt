@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.tprobius.randomuserapp.MainActivity
 import com.tprobius.randomuserapp.databinding.FragmentUsersListBinding
 import com.tprobius.randomuserapp.domain.entities.RandomUser
@@ -15,6 +17,7 @@ import com.tprobius.randomuserapp.presentation.userslist.userslistadapter.UsersL
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.properties.Delegates
+
 
 class UsersListFragment : Fragment() {
 
@@ -25,12 +28,18 @@ class UsersListFragment : Fragment() {
     private val viewModel: UsersListViewModel by viewModel()
 
     private var usersListAdapter by Delegates.notNull<UsersListAdapter>()
+    private var layoutManager by Delegates.notNull<GridLayoutManager>()
+    private var lastPosition by Delegates.notNull<Int>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        lastPosition = requireActivity()
+            .getSharedPreferences(MainActivity.APP_PREFERENCES, Context.MODE_PRIVATE)
+            .getInt(LAST_POSITION, 0)
+
         _binding = FragmentUsersListBinding.inflate(inflater, container, false)
 
         return binding.root
@@ -93,6 +102,8 @@ class UsersListFragment : Fragment() {
         viewLifecycleOwner.lifecycleScope.launch {
             usersListAdapter.submitList(usersList)
         }
+
+        binding.usersListRecyclerView.scrollToPosition(lastPosition)
     }
 
     private fun showErrorState() {
@@ -103,9 +114,20 @@ class UsersListFragment : Fragment() {
         )
     }
 
+
     private fun setUsersListAdapter() {
         usersListAdapter = UsersListAdapter(onClickListener = { viewModel.getUserDetails(it) })
         binding.usersListRecyclerView.adapter = usersListAdapter
+
+        layoutManager = GridLayoutManager(requireContext(), 1)
+        binding.usersListRecyclerView.layoutManager = layoutManager
+
+        binding.usersListRecyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrollStateChanged(usersListRecyclerView: RecyclerView, newState: Int) {
+                super.onScrollStateChanged(usersListRecyclerView, newState)
+                lastPosition = layoutManager.findFirstVisibleItemPosition()
+            }
+        })
     }
 
     private fun setOnTryAgainClick() {
@@ -122,8 +144,20 @@ class UsersListFragment : Fragment() {
         }
     }
 
+    override fun onPause() {
+        super.onPause()
+        requireActivity()
+            .getSharedPreferences(MainActivity.APP_PREFERENCES, Context.MODE_PRIVATE).edit()
+            .putInt(LAST_POSITION, lastPosition)
+            .apply()
+    }
+
     override fun onDestroy() {
         _binding = null
         super.onDestroy()
+    }
+
+    companion object {
+        const val LAST_POSITION = "last_position"
     }
 }
