@@ -38,11 +38,13 @@
 </p>
 
 <p>
-  При неудачной загрузке данных выводится сообщение об ошибке с предложением повторить попытку.
+  При неудачной загрузке данных выводится сообщение об ошибке с предложением повторить попытку. Также реализована поддержка
+  русского языка.
 </p>
 
 <p align="center">  
     <img src="./screenshots/Screenshot_20240225_133423.png" alt="error_message_screen" width="25%" height="auto">
+    <img src="./screenshots/Screenshot_20240225_153046.png" alt="error_message_screen" width="25%" height="auto">
 </p>
 
 ### Запуск приложения
