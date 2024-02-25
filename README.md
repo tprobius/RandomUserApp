@@ -24,6 +24,7 @@
 <p align="center">  
     <img src="./screenshots/Screenshot_20240225_133122.png" alt="users_list_screen" width="25%" height="auto">
     <img src="./screenshots/Screenshot_20240225_133145.png" alt="user_details_screen" width="25%" height="auto">
+    <img src="./screenshots/Screenshot_20240225_133145.png" alt="redirection_to_mail_agent" width="25%" height="auto">
 </p>
 
 <p>
@@ -33,7 +34,7 @@
 <p align="center">  
     <img src="./screenshots/Screenshot_20240225_133347.png" alt="users_list_screen_refreshing" width="25%" height="auto">
     <img src="./screenshots/Screenshot_20240225_133349.png" alt="users_list_screen_refreshing" width="25%" height="auto">
-    <img src="./screenshots/Screenshot_20240225_133400.png" alt="users_list_screen" width="25%" height="auto">
+    <img src="./screenshots/Screenshot_20240225_151314.png" alt="users_list_screen" width="25%" height="auto">
 </p>
 
 <p>
