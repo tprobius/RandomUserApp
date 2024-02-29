@@ -138,6 +138,7 @@ class UsersListFragment : Fragment() {
 
     private fun setOnRefreshList() {
         binding.swipeRefreshLayout.setOnRefreshListener {
+            usersListAdapter.submitList(emptyList())
             MainActivity.isFirst.add(true)
             viewModel.getUsersList(MainActivity.isFirst.last())
             binding.swipeRefreshLayout.isRefreshing = false
