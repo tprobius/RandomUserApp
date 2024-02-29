@@ -1,6 +1,6 @@
 package com.tprobius.randomuserapp.domain.repository
 
-import com.tprobius.randomuserapp.domain.entities.RandomUser
+import com.tprobius.randomuserapp.domain.model.RandomUser
 
 interface RandomUserDatabaseRepository {
 

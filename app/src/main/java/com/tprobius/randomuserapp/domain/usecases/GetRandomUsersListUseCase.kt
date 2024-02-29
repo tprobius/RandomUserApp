@@ -1,6 +1,6 @@
 package com.tprobius.randomuserapp.domain.usecases
 
-import com.tprobius.randomuserapp.domain.entities.RandomUser
+import com.tprobius.randomuserapp.domain.model.RandomUser
 import com.tprobius.randomuserapp.domain.repository.RandomUserApiRepository
 import com.tprobius.randomuserapp.domain.repository.RandomUserDatabaseRepository
 

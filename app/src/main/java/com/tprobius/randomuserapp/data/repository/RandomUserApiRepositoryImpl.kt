@@ -1,7 +1,7 @@
 package com.tprobius.randomuserapp.data.repository
 
 import com.tprobius.randomuserapp.data.api.RandomUserApi
-import com.tprobius.randomuserapp.domain.entities.RandomUser
+import com.tprobius.randomuserapp.domain.model.RandomUser
 import com.tprobius.randomuserapp.domain.repository.RandomUserApiRepository
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext

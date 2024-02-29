@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tprobius.randomuserapp.MainActivity
 import com.tprobius.randomuserapp.databinding.FragmentUsersListBinding
-import com.tprobius.randomuserapp.domain.entities.RandomUser
+import com.tprobius.randomuserapp.domain.model.RandomUser
 import com.tprobius.randomuserapp.presentation.userslist.userslistadapter.UsersListAdapter
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel

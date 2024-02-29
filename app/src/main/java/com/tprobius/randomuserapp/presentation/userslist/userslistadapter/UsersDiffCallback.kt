@@ -1,7 +1,7 @@
 package com.tprobius.randomuserapp.presentation.userslist.userslistadapter
 
 import androidx.recyclerview.widget.DiffUtil
-import com.tprobius.randomuserapp.domain.entities.RandomUser
+import com.tprobius.randomuserapp.domain.model.RandomUser
 
 class UsersDiffCallback : DiffUtil.ItemCallback<RandomUser>() {
 

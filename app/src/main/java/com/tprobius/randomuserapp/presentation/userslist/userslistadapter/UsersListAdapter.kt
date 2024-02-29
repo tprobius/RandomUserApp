@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import com.tprobius.randomuserapp.databinding.ItemUserBinding
-import com.tprobius.randomuserapp.domain.entities.RandomUser
+import com.tprobius.randomuserapp.domain.model.RandomUser
 
 class UsersListAdapter(
     private val onClickListener: (RandomUser) -> Unit,
