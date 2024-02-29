@@ -2,9 +2,9 @@ package com.tprobius.randomuserapp.data.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.tprobius.randomuserapp.domain.entities.RandomUser
+import com.tprobius.randomuserapp.data.entities.RandomUserEntity
 
-@Database(entities = [RandomUser::class], version = 1, exportSchema = false)
+@Database(entities = [RandomUserEntity::class], version = 1, exportSchema = false)
 abstract class RandomUserDatabase : RoomDatabase() {
     abstract val randomUserDao: RandomUserDao
 
