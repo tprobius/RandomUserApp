@@ -18,7 +18,6 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import kotlin.properties.Delegates
 
-
 class UsersListFragment : Fragment() {
 
     private var _binding: FragmentUsersListBinding? = null
@@ -138,6 +137,7 @@ class UsersListFragment : Fragment() {
 
     private fun setOnRefreshList() {
         binding.swipeRefreshLayout.setOnRefreshListener {
+            usersListAdapter.submitList(emptyList())
             MainActivity.isFirst.add(true)
             viewModel.getUsersList(MainActivity.isFirst.last())
             binding.swipeRefreshLayout.isRefreshing = false
