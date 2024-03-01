@@ -1,14 +1,10 @@
-package com.tprobius.randomuserapp.domain.entities
+package com.tprobius.randomuserapp.domain.model
 
 import android.os.Parcelable
-import androidx.room.Entity
-import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity(tableName = "users")
 data class RandomUser(
-    @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val gender: String? = null,
     val title: String? = null,

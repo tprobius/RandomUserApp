@@ -6,7 +6,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.tprobius.randomuserapp.R
 import com.tprobius.randomuserapp.databinding.ItemUserBinding
-import com.tprobius.randomuserapp.domain.entities.RandomUser
+import com.tprobius.randomuserapp.domain.model.RandomUser
 
 class UserViewHolder(
     private var binding: ItemUserBinding,
