@@ -88,3 +88,4 @@ git@github.com:tprobius/RandomUserApp.git
 ### Backlog
 
 - [ ] Реализовать поддержку тёмной темы.
+- [ ] Покрыть тестами бизнес-логику.
