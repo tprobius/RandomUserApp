@@ -63,7 +63,7 @@ ssh:
 git@github.com:tprobius/RandomUserApp.git
 ```
 
-Запустить на эмуляторе утройства в Android Studio.
+Запустить на эмуляторе устройства в Android Studio.
 
 ### Генерация APK
 
