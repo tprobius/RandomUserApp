@@ -24,7 +24,7 @@ Implement an Android application with the following functions:
 </p>
 
 <p>
-  The list of users can be refreshing by scrolling.
+  The list of users can be refreshing by using the pull-to-refresh gesture.
 </p>
 
 <p align="center">  
